@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+    <title>SquadMee</title>
+    <meta charset="UTF-8">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="script.js" async></script>       
+	<link href="styles.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>SquadMee....</h1>
+		<h2>This is the events page</h2>
+        <article id="listevents">
+		<h3>List of events!</h3>
+		<ul id="events">
+			<% if (typeof data !== 'undefined' && data.length > 0) { %>
+		
+			<% for(var i=0; i < data.length; i++) { %>
+				<li><%= data[i].eventname %> needs <%= data[i].participants %> people. It
+				takes place by <%= data[i].time %></li>
+				<% if (data[i].description.length > 0) { %>
+					<p><%= data[i].description%></p>
+				<% } %>
+     
+			<% } %>
+			<% } %>
+		</ul>
+		</article>
+        <form action="/home">
+            <input type="submit" value="Back to Home Page"/>
+        </form>
+        
+        <form action="/logout">
+            <input type="submit" value="Logout"/>
+        </form>
+        <input id="bcreate-event" type="button" value="Create New Event"/>
+        
+        <a href="/profile">Profile</a>
+		
+		<% if (typeof error !== 'undefined' && error.length > 0) { %>
+				<p class="error"><%= error %></p>
+		<% } %>
+        <form id="create-event" class="hidden" action="/create-event" method="post">
+            Event Name <input type="text" name="eventname" id="eventname" required > <br>
+			Number of participants needed <input type="number" name="number" id="number" required> <br>
+			Date and Time <input type="datetime-local" name="datetime" id="datetime" required> <br>
+			Description <input type="text" name="description" id="description"> <br>
+			<button id="create" >Create Event</button>	
+        </form>
+		
+		<% if (typeof message !== 'undefined' && message.length > 0) { %>
+				<h3 class="message"><%= message %></h3>
+		<% } %>
+		
+        
+	</body>
+
+</html>
+

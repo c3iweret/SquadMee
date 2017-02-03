@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+    <title>SquadMee</title>
+    <meta charset="UTF-8">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="script.js" defer></script>       
+	<link href="styles.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>SquadMee....</h1>
+		<h2> Log In </h2>
+		<% if (typeof error !== 'undefined' && error.length > 0) { %>
+				<p class="error"><%= error %></p>
+		<% } %>
+		<form id="f-login" action="/login" method="post">
+			Email  <input type="email" name="email" required><br> 
+			Password  <input type="password" name="password" required> <br>
+			<button id="b-login">Login</button>	
+		</form>
+		<a href="/profile">Profile</a> <a href="/events">View Events</a>
+		<h2>New to SquadMee? <a href="/signup">Sign Up</a></h2>
+		<% if (typeof signup !== 'undefined' && signup.length > 0) { %>
+				<p><%= signup %><p>
+		<% } %>
+	</body>
+
+</html>

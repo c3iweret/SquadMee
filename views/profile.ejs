@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+    <title>SquadMee</title>
+    <meta charset="UTF-8">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="script.js" async></script>       
+	<link href="styles.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>SquadMee....</h1>
+		<h2>Welcome to your profile <%=user.firstname%></h2> 
+		
+        <form action="/home">
+            <input type="submit" value="Back to Home Page"/>
+        </form>
+        
+        <form action="/logout">
+            <input type="submit" value="Logout"/>
+        </form>
+        <form action="/events">
+            <input type="submit" value="View Events"/>
+        </form>
+        <form action="/create-event">
+            <input id="create" type="submit" value="Create New Event"/>
+        </form>
+        
+	</body>
+
+</html>
+
